@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.util.ArrayList;
 
 public class Frequenzverteilung {
 
@@ -57,14 +58,15 @@ public class Frequenzverteilung {
 	public static void main(String[] args) {
 
 		// Initialize variables
-		String senderName;
-		int senderNr;
+		String senderName = null;
+		int senderNr = 0;
 		String delimiter = " ";
 		String currentLine = "";
 		lnr = getLineNumber();
 		// Initialize two dimensional string array
 		String[][] senderDataS = new String[lnr][3];
 		Double[][] senderData = new Double[lnr][3];
+		double sX = 0, sY = 0, sR = 0;
 
 		// Create Buffer
 		try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -106,13 +108,28 @@ public class Frequenzverteilung {
 			e.printStackTrace();
 		}
 		
-		//Create sender
-//		for(int l = 0; l < senderData.length; l++) {
-//			senderNr = l + 1;
-//			senderName = "S" + senderNr;
-//			
-//			Sender senderName = new Sender(senderName, );
-//		}
+		//Create sender objects
+		ArrayList<Sender> senderArr = new ArrayList<Sender>();
+		for(int w = 0; w < senderData.length; w++) {
+			for(int u = 0; u < senderData[w].length; u++) {
+				
+				senderName = "S" + (w + 1);
+				if(u == 0) {
+					sX = senderData[w][u];
+				} else if(u == 1) {
+					sY = senderData[w][u];
+				} else  {
+					sR = senderData[w][u];
+				}
+				
+			}
+			senderNr = w + 1;
+
+			senderArr.add(new Sender(senderName, senderNr, sX, sY, sR));
+		}
+		
+		//System.out.println(senderArr.get(0).getName());
+		System.out.println("fertig");
 
 	}
 

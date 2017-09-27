@@ -5,12 +5,12 @@ public class Sender {
 	// Declare attributes
 	private String name;
 	private int number;
-	private int posX;
-	private int posY;
-	private int radius;
+	private double posX;
+	private double posY;
+	private double radius;
 
 	// Create constructor
-	public Sender(String name, int number, int posX, int posY, int radius) {
+	public Sender(String name, int number, double posX, double posY, double radius) {
 		this.name = name;
 		this.number = number;
 		this.posX = posX;
@@ -26,7 +26,7 @@ public class Sender {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getNumber() {
 		return number;
 	}
@@ -35,27 +35,27 @@ public class Sender {
 		this.number = number;
 	}
 
-	public int getPosX() {
+	public double getPosX() {
 		return posX;
 	}
 
-	public void setPosX(int posX) {
+	public void setPosX(double posX) {
 		this.posX = posX;
 	}
 
-	public int getPosY() {
+	public double getPosY() {
 		return posY;
 	}
 
-	public void setPosY(int posY) {
+	public void setPosY(double posY) {
 		this.posY = posY;
 	}
 
-	public int getRadius() {
+	public double getRadius() {
 		return radius;
 	}
 
-	public void setRadius(int radius) {
+	public void setRadius(double radius) {
 		this.radius = radius;
 	}
 	
