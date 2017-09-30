@@ -12,6 +12,20 @@ public class Frequenzverteilung {
 	// Public variable which holds the absolute path to the file
 	// Maybe add read file from command arguments
 	public static String filename = "/home/jupiter/workspace/Frequenzverteilung/SenderList";
+	
+	// Make Arraylist public
+	public static ArrayList<Sender> senderArr = new ArrayList<Sender>();
+	
+	// Getter for ArrayList
+//	public ArrayList<Sender> getArrList() {
+//		return senderArr;
+//	}
+	
+	// Setter for arrayList
+//	public void setArrList(ArrayList<Sender> senderArr) {
+//		Frequenzverteilung.senderArr = senderArr;
+//	}
+	 
 
 	// Init var
 	public static int lnr;
@@ -30,7 +44,7 @@ public class Frequenzverteilung {
 				linenumber++;
 			}
 
-		// cCtch exceptions
+			// Catch exceptions
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -42,15 +56,15 @@ public class Frequenzverteilung {
 	// Method to convert string array to double array
 	public static Double[][] convertArray(String[][] senderDataS) {
 		Double[][] data = new Double[lnr][3];
-		
-		for(int p = 0; p < senderDataS.length; p++) {
-			for(int q = 0; q < senderDataS[p].length; q++) {
+
+		for (int p = 0; p < senderDataS.length; p++) {
+			for (int q = 0; q < senderDataS[p].length; q++) {
 				Double d = Double.parseDouble(senderDataS[p][q]);
-				
+
 				data[p][q] = d;
 			}
 		}
-		
+
 		return data;
 	}
 
@@ -77,7 +91,8 @@ public class Frequenzverteilung {
 			while ((currentLine = br.readLine()) != null) {
 
 				// Get current line split it to array
-				// For length of currentLine array get each element and put it in sender Data array
+				// For length of currentLine array get each element and put it
+				// in sender Data array
 				for (int h = 0; h < currentLine.split(delimiter).length; h++) {
 					senderDataS[nr][h] = currentLine.split(delimiter)[h];
 				}
@@ -86,49 +101,53 @@ public class Frequenzverteilung {
 			}
 
 			// Just print array data
-//			for (int i = 0; i < senderDataS.length; i++) {
-//				for (int k = 0; k < senderDataS[i].length; k++) {
-//					System.out.println(" " + senderDataS[i][k]);
+			// for (int i = 0; i < senderDataS.length; i++) {
+			// for (int k = 0; k < senderDataS[i].length; k++) {
+			// System.out.println(" " + senderDataS[i][k]);
+			// }
+			// System.out.println("");
+			// }
+
+			// Call convertArray method
+			senderData = convertArray(senderDataS);
+
+//			for (int i = 0; i < senderData.length; i++) {
+//				for (int k = 0; k < senderData[i].length; k++) {
+//					System.out.println(" " + senderData[i][k]);
 //				}
 //				System.out.println("");
 //			}
-			
-			// Call convertArray method
-			senderData = convertArray(senderDataS);
-			
-			for (int i = 0; i < senderData.length; i++) {
-			for (int k = 0; k < senderData[i].length; k++) {
-				System.out.println(" " + senderData[i][k]);
-			}
-			System.out.println("");
-		}
-			
-		// catch exception
+
+			// catch exception
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		//Create sender objects
-		ArrayList<Sender> senderArr = new ArrayList<Sender>();
-		for(int w = 0; w < senderData.length; w++) {
-			for(int u = 0; u < senderData[w].length; u++) {
-				
+
+		// Create sender objects
+		for (int w = 0; w < senderData.length; w++) {
+			for (int u = 0; u < senderData[w].length; u++) {
+
 				senderName = "S" + (w + 1);
-				if(u == 0) {
+				if (u == 0) {
 					sX = senderData[w][u];
-				} else if(u == 1) {
+				} else if (u == 1) {
 					sY = senderData[w][u];
-				} else  {
+				} else {
 					sR = senderData[w][u];
 				}
-				
+
 			}
 			senderNr = w + 1;
 
 			senderArr.add(new Sender(senderName, senderNr, sX, sY, sR));
 		}
-		
-		//System.out.println(senderArr.get(0).getName());
+
+		// run chooser
+		PepareSender preparesender = new PepareSender();
+		preparesender.calcOverlap();
+
+		// System.out.println(senderArr.get(0).getName());
+		System.out.println(senderArr.get(0).getOverlap());
 		System.out.println("fertig");
 
 	}
