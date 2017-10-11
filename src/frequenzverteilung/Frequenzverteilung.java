@@ -142,12 +142,18 @@ public class Frequenzverteilung {
 			senderArr.add(new Sender(senderName, senderNr, sX, sY, sR));
 		}
 
-		// run chooser
+		// prepare sender
 		PepareSender preparesender = new PepareSender();
 		preparesender.calcOverlap();
+		
+//		for(int o = 0; o < senderArr.size(); o++) {
+//			System.out.println(senderArr.get(o).getName() + " " + senderArr.get(o).getOverlap() + " " + senderArr.get(o).getPosX() + " " + senderArr.get(o).getPosY());
+//		}
 
-		// System.out.println(senderArr.get(0).getName());
-		System.out.println(senderArr.get(0).getOverlap());
+		DistributeFreq distributefreq = new DistributeFreq();
+		distributefreq.freq1();
+		
+		System.out.println(senderArr.get(7).getFreq());
 		System.out.println("fertig");
 
 	}

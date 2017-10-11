@@ -10,7 +10,7 @@ public class PepareSender {
 		ArrayList<Sender> senderArr = Frequenzverteilung.senderArr;
 
 		// init freq array and count
-		int[] frequenzen = { 1, 2, 3, 4};
+		// int[] frequenzen = { 1, 2, 3, 4};
 		int count = 0;
 
 		// For each element in senderArr
@@ -46,7 +46,5 @@ public class PepareSender {
 			senderArr.get(i).setOverlap(count);
 
 		}
-
 	}
-
 }

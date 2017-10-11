@@ -1,5 +1,7 @@
 package frequenzverteilung;
 
+import java.util.ArrayList;
+
 public class Sender {
 	
 	// Declare attributes
@@ -9,6 +11,9 @@ public class Sender {
 	private double posY;
 	private double radius;
 	private int overlap;
+	private int freq = -1;
+	private ArrayList<Integer> blockedFreq = new ArrayList<Integer>();
+	private ArrayList<Sender> overlappingSenders = new ArrayList<Sender>();
 
 	// Create constructor
 	public Sender(String name, int number, double posX, double posY, double radius) {
@@ -67,6 +72,30 @@ public class Sender {
 
 	public int getOverlap() {
 		return overlap;
+	}
+	
+	public void setFreq(int i) {
+		this.freq = i;
+	}
+
+	public int getFreq() {
+		return freq;
+	}
+
+	public ArrayList<Integer> getBlockedFreq() {
+		return blockedFreq;
+	}
+
+	public void setBlockedFreq(ArrayList<Integer> blockedFreq) {
+		this.blockedFreq = blockedFreq;
+	}
+
+	public ArrayList<Sender> getOverlappingSenders() {
+		return overlappingSenders;
+	}
+
+	public void setOverlappingSenders(ArrayList<Sender> overlappingSenders) {
+		this.overlappingSenders = overlappingSenders;
 	}
 	
 }
