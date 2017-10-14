@@ -13,7 +13,7 @@ public class Sender {
 	private int overlap;
 	private int freq = -1;
 	private ArrayList<Integer> blockedFreq = new ArrayList<Integer>();
-	private ArrayList<Sender> overlappingSenders = new ArrayList<Sender>();
+	private ArrayList<Integer> overlappingSenders = new ArrayList<Integer>();
 
 	// Create constructor
 	public Sender(String name, int number, double posX, double posY, double radius) {
@@ -86,16 +86,20 @@ public class Sender {
 		return blockedFreq;
 	}
 
-	public void setBlockedFreq(ArrayList<Integer> blockedFreq) {
-		this.blockedFreq = blockedFreq;
+	public void setBlockedFreq(int blockedFreq) {
+		this.blockedFreq.add(blockedFreq);
 	}
 
-	public ArrayList<Sender> getOverlappingSenders() {
+	public ArrayList<Integer> getOverlappingSenders() {
 		return overlappingSenders;
 	}
 
-	public void setOverlappingSenders(ArrayList<Sender> overlappingSenders) {
-		this.overlappingSenders = overlappingSenders;
+	public void setOverlappingSenders(ArrayList<Integer> overlappingSenders) {
+		ArrayList<Integer> test = new ArrayList<Integer>();
+		for(int h = 0; h < overlappingSenders.size(); h++) {
+			test.add(overlappingSenders.get(h));
+		}
+		this.overlappingSenders = test;
 	}
 	
 }

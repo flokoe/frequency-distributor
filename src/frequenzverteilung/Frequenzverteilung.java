@@ -145,15 +145,17 @@ public class Frequenzverteilung {
 		// prepare sender
 		PepareSender preparesender = new PepareSender();
 		preparesender.calcOverlap();
-		
-//		for(int o = 0; o < senderArr.size(); o++) {
-//			System.out.println(senderArr.get(o).getName() + " " + senderArr.get(o).getOverlap() + " " + senderArr.get(o).getPosX() + " " + senderArr.get(o).getPosY());
-//		}
+		preparesender.overlappingSenders();
 
 		DistributeFreq distributefreq = new DistributeFreq();
 		distributefreq.freq1();
 		
-		System.out.println(senderArr.get(7).getFreq());
+		ArrayList<Integer> test = senderArr.get(4).getBlockedFreq();
+		
+		for(int v = 0; v < test.size(); v++) {
+			System.out.println(test.get(v));
+		}
+		
 		System.out.println("fertig");
 
 	}
