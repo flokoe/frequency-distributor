@@ -73,7 +73,8 @@ public class PepareSender {
 									((senderArr.get(i).getPosY()) - (senderArr
 											.get(k).getPosY())), 2));
 
-					// Add index number of sender if real distance is lesser than
+					// Add index number of sender if real distance is lesser
+					// than
 					// minDistance (they overlap)
 					if (realDistance < minDistance) {
 						overlappingSenders.add(k);

@@ -3,7 +3,7 @@ package frequenzverteilung;
 import java.util.ArrayList;
 
 public class Sender {
-	
+
 	// Declare attributes
 	private String name;
 	private int number;
@@ -16,13 +16,14 @@ public class Sender {
 	private ArrayList<Integer> overlappingSenders = new ArrayList<Integer>();
 
 	// Create constructor
-	public Sender(String name, int number, double posX, double posY, double radius) {
+	public Sender(String name, int number, double posX, double posY,
+			double radius) {
 		this.name = name;
 		this.number = number;
 		this.posX = posX;
 		this.posY = posY;
 		this.radius = radius;
-		//this.overlap = count;
+		// this.overlap = count;
 	}
 
 	// Create getters and setters
@@ -73,7 +74,7 @@ public class Sender {
 	public int getOverlap() {
 		return overlap;
 	}
-	
+
 	public void setFreq(int i) {
 		this.freq = i;
 	}
@@ -96,10 +97,10 @@ public class Sender {
 
 	public void setOverlappingSenders(ArrayList<Integer> overlappingSenders) {
 		ArrayList<Integer> test = new ArrayList<Integer>();
-		for(int h = 0; h < overlappingSenders.size(); h++) {
+		for (int h = 0; h < overlappingSenders.size(); h++) {
 			test.add(overlappingSenders.get(h));
 		}
 		this.overlappingSenders = test;
 	}
-	
+
 }

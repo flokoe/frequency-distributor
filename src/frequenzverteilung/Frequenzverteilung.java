@@ -12,20 +12,19 @@ public class Frequenzverteilung {
 	// Public variable which holds the absolute path to the file
 	// Maybe add read file from command arguments
 	public static String filename = "/home/jupiter/workspace/Frequenzverteilung/SenderList";
-	
+
 	// Make Arraylist public
 	public static ArrayList<Sender> senderArr = new ArrayList<Sender>();
-	
+
 	// Getter for ArrayList
-//	public ArrayList<Sender> getArrList() {
-//		return senderArr;
-//	}
-	
+	// public ArrayList<Sender> getArrList() {
+	// return senderArr;
+	// }
+
 	// Setter for arrayList
-//	public void setArrList(ArrayList<Sender> senderArr) {
-//		Frequenzverteilung.senderArr = senderArr;
-//	}
-	 
+	// public void setArrList(ArrayList<Sender> senderArr) {
+	// Frequenzverteilung.senderArr = senderArr;
+	// }
 
 	// Init var
 	public static int lnr;
@@ -111,12 +110,12 @@ public class Frequenzverteilung {
 			// Call convertArray method
 			senderData = convertArray(senderDataS);
 
-//			for (int i = 0; i < senderData.length; i++) {
-//				for (int k = 0; k < senderData[i].length; k++) {
-//					System.out.println(" " + senderData[i][k]);
-//				}
-//				System.out.println("");
-//			}
+			// for (int i = 0; i < senderData.length; i++) {
+			// for (int k = 0; k < senderData[i].length; k++) {
+			// System.out.println(" " + senderData[i][k]);
+			// }
+			// System.out.println("");
+			// }
 
 			// catch exception
 		} catch (IOException e) {
@@ -148,16 +147,15 @@ public class Frequenzverteilung {
 		preparesender.overlappingSenders();
 
 		DistributeFreq distributefreq = new DistributeFreq();
-		distributefreq.freq1();
-		
-		ArrayList<Integer> test = senderArr.get(4).getBlockedFreq();
-		
-		for(int v = 0; v < test.size(); v++) {
-			System.out.println(test.get(v));
+
+		for (int g = 0; g < senderArr.size(); g++) {
+			if (senderArr.get(g).getFreq() != 1
+					&& senderArr.get(g).getBlockedFreq().isEmpty()) {
+				distributefreq.freq1();
+			}
 		}
-		
+
 		System.out.println("fertig");
 
 	}
-
 }
