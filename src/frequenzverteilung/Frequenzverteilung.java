@@ -155,7 +155,24 @@ public class Frequenzverteilung {
 			}
 		}
 
-		System.out.println("fertig");
+		// distribute other frequencies
+		for (int h = 0; h < senderArr.size(); h++) {
+				distributefreq.otherFrequencies();
+		}
+
+		// print sender frequency
+//		for (int f = 0; f < senderArr.size(); f++) {
+//			System.out.println(senderArr.get(f).getName() + " freq: "
+//					+ senderArr.get(f).getFreq());
+//			 ArrayList<Integer> bf = senderArr.get(f).getBlockedFreq();
+//			 System.out.println("blocked freq size: " + bf.size());
+//			 for(int s = 0; s < bf.size(); s++ ) {
+//			 System.out.println(bf.get(s));
+//			 }
+//			 System.out.println("");
+		// }
+		//
+		// System.out.println("fertig");
 
 	}
 }
