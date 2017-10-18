@@ -126,7 +126,12 @@ public class Frequenzverteilung {
 		for (int w = 0; w < senderData.length; w++) {
 			for (int u = 0; u < senderData[w].length; u++) {
 
-				senderName = "S" + (w + 1);
+				// leading zeroes before single-digit number
+				if (w < 9) {
+					senderName = "S0" + (w + 1);
+				} else {
+					senderName = "S" + (w + 1);
+				}
 				if (u == 0) {
 					sX = senderData[w][u];
 				} else if (u == 1) {
@@ -157,22 +162,12 @@ public class Frequenzverteilung {
 
 		// distribute other frequencies
 		for (int h = 0; h < senderArr.size(); h++) {
-				distributefreq.otherFrequencies();
+			distributefreq.otherFrequencies();
 		}
 
-		// print sender frequency
-//		for (int f = 0; f < senderArr.size(); f++) {
-//			System.out.println(senderArr.get(f).getName() + " freq: "
-//					+ senderArr.get(f).getFreq());
-//			 ArrayList<Integer> bf = senderArr.get(f).getBlockedFreq();
-//			 System.out.println("blocked freq size: " + bf.size());
-//			 for(int s = 0; s < bf.size(); s++ ) {
-//			 System.out.println(bf.get(s));
-//			 }
-//			 System.out.println("");
-		// }
-		//
-		// System.out.println("fertig");
+		// print stdout
+		Output outputstd = new Output();
+		outputstd.stdout();
 
 	}
 }

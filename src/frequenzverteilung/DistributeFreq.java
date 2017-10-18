@@ -79,7 +79,8 @@ public class DistributeFreq {
 		int currentFreqCount;
 		int nBest2 = 0;
 
-		// get the best (best is who has the most blocked freq, has smallest x and y coord)
+		// get the best (best is who has the most blocked freq, has smallest x
+		// and y coord)
 		for (int i = 0; i < senderArr.size(); i++) {
 			// Ignore alle senders which already have a frequency
 			if (senderArr.get(i).getFreq() == -1) {
@@ -107,7 +108,7 @@ public class DistributeFreq {
 				}
 			}
 		}
-		
+
 		// Mby add ignore last 2 runs
 
 		// set freq
@@ -157,7 +158,7 @@ public class DistributeFreq {
 		for (int k = 0; k < overlappingSenders.size(); k++) {
 			int overlappingSender = overlappingSenders.get(k);
 
-			// prevent that the frequencies exit twice in array 
+			// prevent that the frequencies exit twice in array
 			if (!senderArr.get(overlappingSender).getBlockedFreq()
 					.contains(freq)) {
 				senderArr.get(overlappingSender).setBlockedFreq(freq);
