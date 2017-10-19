@@ -8,7 +8,7 @@ public class DistributeFreq {
 	public static boolean go = true;
 
 	// Create poiter to sender Array
-	ArrayList<Sender> senderArr = Frequenzverteilung.senderArr;
+	ArrayList<Sender> senderArr = Input.senderArr;
 
 	// Method to distribute frequency one
 	public void freq1() {

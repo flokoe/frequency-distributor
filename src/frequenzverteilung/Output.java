@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Output {
 
 	public void stdout() {
-		ArrayList<Sender> senderArr = Frequenzverteilung.senderArr;
+		ArrayList<Sender> senderArr = Input.senderArr;
 		// create Format to display number with 3 digits after comma
 		DecimalFormat myFormatter = new DecimalFormat("###.000");
 

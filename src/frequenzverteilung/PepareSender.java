@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class PepareSender {
 
-	ArrayList<Sender> senderArr = Frequenzverteilung.senderArr;
+	ArrayList<Sender> senderArr = Input.senderArr;
 
 	// count times of overlap
 	public void calcOverlap() {
