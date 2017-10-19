@@ -33,14 +33,21 @@ public class Frequenzverteilung {
 	public static int getLineNumber() {
 
 		int linenumber = 0;
+		String cl = "";
 
 		// Read file
 		try (LineNumberReader lnr = new LineNumberReader(new FileReader(
 				filename))) {
 
 			// For each line increase var linenumber
-			while (lnr.readLine() != null) {
-				linenumber++;
+			while ((cl = lnr.readLine()) != null) {
+				// Get first character of current line
+				char firstChar = cl.charAt(0);
+				// If currentline has an asterisk as first character ignore is
+				// (* = comment)
+				if (firstChar != '*') {
+					linenumber++;
+				}
 			}
 
 			// Catch exceptions
@@ -89,13 +96,22 @@ public class Frequenzverteilung {
 			// get line by line
 			while ((currentLine = br.readLine()) != null) {
 
-				// Get current line split it to array
-				// For length of currentLine array get each element and put it
-				// in sender Data array
-				for (int h = 0; h < currentLine.split(delimiter).length; h++) {
-					senderDataS[nr][h] = currentLine.split(delimiter)[h];
+				// Get first character of current line
+				char firstChar = currentLine.charAt(0);
+
+				// If currentline has an asterisk as first character ignore is
+				// (* = comment)
+				if (firstChar != '*') {
+
+					// Get current line split it to array
+					// For length of currentLine array get each element and put
+					// it
+					// in sender Data array
+					for (int h = 0; h < currentLine.split(delimiter).length; h++) {
+						senderDataS[nr][h] = currentLine.split(delimiter)[h];
+					}
+					nr++;
 				}
-				nr++;
 
 			}
 
