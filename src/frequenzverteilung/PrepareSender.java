@@ -3,7 +3,7 @@ package frequenzverteilung;
 // Import needed libs 
 import java.util.ArrayList;
 
-public class PepareSender {
+public class PrepareSender {
 
 	ArrayList<Sender> senderArr = Input.senderArr;
 

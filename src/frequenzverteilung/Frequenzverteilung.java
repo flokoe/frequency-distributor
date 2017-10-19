@@ -15,7 +15,7 @@ public class Frequenzverteilung {
 		input.create();
 
 		// prepare sender
-		PepareSender preparesender = new PepareSender();
+		PrepareSender preparesender = new PrepareSender();
 		preparesender.calcOverlap();
 		preparesender.overlappingSenders();
 
